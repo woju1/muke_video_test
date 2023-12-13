@@ -1,0 +1,16 @@
+input,select { 
+	width: 50% !important;
+	/* 如果input不能调整宽度的话就这样。 !important是强制覆盖。
+	有些时候层级比较低，会无效。这个时候用!important就可以生效了。
+	*/
+	display: inline-block !important;
+}
+
+.add-url {
+	width: 50%;
+	padding: 10px;
+	border: 1px solid #cccccc;
+}
+#add-url-btn, #add-star-btn{
+	width: 60px !important;
+}

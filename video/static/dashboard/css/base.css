@@ -1,0 +1,57 @@
+html, body{
+    margin:0;
+    padding:0;
+    width: 100%;
+    height:100%;
+}
+#base-area {
+    width:100%;
+    position:absolute;
+    height:100%;
+}
+.navbar {
+    margin-bottom: 0;
+}
+
+.side-menu {
+    height:100%;
+    width:12%;
+    position:absolute;
+    left:0;
+    top:0;
+	list-style: none;
+	padding-left: 0px;
+}
+.side-menu li{
+	text-align: center;
+	width: 100%;
+	line-height: 32px;
+	/* 鼠标悬停的时候，会有小手 */
+	cursor: pointer;
+	border: 1px solid #cccccc;
+	/* 把右边框取消了 */
+	border-right: 0px;
+}
+.base-content {
+	height:100%;
+	width:88%;
+	position:absolute;
+	right:0;
+	top:0;
+	/* background: red; */
+	border-left: 1px solid #cccccc;
+
+}
+h1{
+	margin: 5%;
+}
+
+/* 成为管理员 */
+.to_ad {
+	background-color: greenyellow;
+}
+
+.ex_ad {
+	background-color: gainsboro;
+}
+

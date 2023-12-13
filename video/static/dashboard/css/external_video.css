@@ -1,0 +1,43 @@
+/* 创建按钮 */
+.open-btn {
+	margin-left: 20px;
+}
+/* 下拉列表 */
+.video-select {
+	width: 25%;
+	display: inline-block;
+}
+/* 添加视频的区域 */
+.add-video-area {
+	width: 50%;
+	/*上下左右都是10像素*/
+	padding: 10px; 
+	border: 1px solid #cccccc;
+	/* 让它的左和上都要间距 */
+	margin-top: 10px;
+	margin-left: 20px;
+	/* 圆角 */
+	border-radius: 8px;
+	/* 一开始是隐藏的 */
+	display: none;
+}
+/* 设置图片大小 */
+.video-images{
+	width: 50px;
+}
+
+/* 
+ width: 100px;: 设置元素的宽度为 100 像素，即限制了元素的宽度。
+ overflow: hidden;: 当元素内容超过其容器大小时，隐藏溢出部分，不显示。
+ white-space: nowrap;: 防止文本换行，将文本保持在一行中。
+ text-overflow: ellipsis;: 当文本溢出时，显示省略号 (...)。
+ 这个属性在配合 overflow: hidden; 和 white-space: nowrap; 使
+ 用时，可以让超过指定宽度的文本以省略号的形式呈现，而不是直接截断或换行。
+ 
+ */
+.info {
+	width: 100px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

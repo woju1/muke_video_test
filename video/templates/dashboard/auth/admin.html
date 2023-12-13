@@ -1,0 +1,60 @@
+<%inherit file='../base.html' />
+<%! from django.shortcuts import reverse %>
+<%def name="content()">
+<%
+	pre_page = '{}?page={}'.format(reverse('admin_manger'), page_num-1)
+	next_page = '{}?page={}'.format(reverse('admin_manger'), page_num+1)
+%>
+<h1>《管理员模块》</h1>
+% if page_num > 1:
+<a href="${pre_page}">上一页</a>
+% endif
+% if page_num < total:
+|<a href="${next_page}">下一页</a>
+% endif
+<table class="table">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>用户</th>
+			<th>超级管理状态</th>
+			<th>创建时间</th>
+			<!-- <th>更新时间</th> -->
+			<th>编辑</th>
+		</tr>
+
+	</thead>
+	
+	<tbody>
+
+			% for user in users:
+			<tr>
+			<td>${user.id}</td>
+			<td>${user.username}</td>
+			<td>${user.is_superuser}</td>
+			<td>${user.date_joined}</td>
+			<!-- <td>${user.last_login}</td> -->
+			% if user.is_superuser:
+			<td>
+			    <form method="get" action="${reverse('admin_update_status')}">
+			        <input type="hidden" name="status" value="off">
+			        <input type="hidden" name="username" value="${user.username}">
+					<input type="hidden" name="page_ys" value="${page_num}">
+			        <button type="submit" class="ex_ad">取消管理员</button>
+			    </form>
+			</td>
+			% else:
+			<td>
+			    <form method="get" action="${reverse('admin_update_status')}">
+			        <input type="hidden" name="status" value="on">
+			        <input type="hidden" name="username" value="${user.username}">
+			        <input type="hidden" name="page_ys" value="${page_num}">
+			        <button type="submit" class="to_ad">成为管理员</button>
+			    </form>
+			</td>
+			% endif
+			</tr>
+			% endfor
+	</tbody>
+</table>
+</%def>

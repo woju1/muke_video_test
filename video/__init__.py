@@ -1,0 +1,1 @@
+__all__ = ['app', 'static', 'templates', 'config']
