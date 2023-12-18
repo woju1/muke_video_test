@@ -109,6 +109,14 @@ class VideoStar(models.Model):
         # 都要保证唯一。
         unique_together = ('video', 'name', 'identity')
 
+    @property
+    def ident(self):
+        try:
+            result = IdentityType(self.identity)
+        except:
+            return ''
+        return result.label
+
     def __str__(self):
         return self.name
 

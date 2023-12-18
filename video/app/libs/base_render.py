@@ -31,7 +31,7 @@ def render_to_response(request, template, data=None):
     for d in context_instance:
         result.update(d)
     result['request'] = request
-    result['csrf_token'] = '<input type="hidden" ' \
+    result['csrf_token'] = '<input type="hidden" id="django-csrf-token"' \
                            'name="csrfmiddlewaretoken" ' \
                            'value={0}>'.format(request.META['CSRF_COOKIE'])
 

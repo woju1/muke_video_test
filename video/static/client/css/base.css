@@ -1,0 +1,70 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+	width: 100%;
+	background: #ffffff;
+}
+
+body {
+	/* iphone6 */
+	max-width: 640px; 
+	position: relative;
+	margin: 0 auto;
+	font-size: 16px;
+}
+
+header,footer {
+	width: 100%;
+	background: #000000;
+	/* 字体颜色 */
+	color: green;
+	height: 3rem;
+	/* 字体居中 */
+	text-align: center;
+	/* 行高 */
+	line-height: 3rem;
+	/* 字体大小 */
+	font-size: 2rem;
+}
+
+footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 1000;
+}
+
+footer ul {
+	list-style: none;
+	width: 100%;
+	zoom:1;
+	height:3rem;
+}
+
+footer ul:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+
+footer ul li {
+	float: left;
+	width: 33%;
+	text-align: center;
+}
+footer ul li a {
+	color: green;
+	text-decoration: none;
+}
+.base-content {
+	width: 100%;
+	zoom:1;
+}
+.base-content:after{
+	display: block;
+	content: '';
+	clear: both;
+}

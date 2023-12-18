@@ -37,9 +37,9 @@
 				<label for="">视频来源</label>
 				<select class="form-control video-select" name="from_type">
 					% for from_type in FromType:
-						% if from_type != FromType('custom'):
+<!-- 						% if from_type != FromType('custom'): -->
 							<option value="${from_type.value}">${from_type.label}</option>
-						% endif
+						<!-- % endif -->
 					% endfor
 				</select>
 			</div>
@@ -69,7 +69,7 @@
 
 		
 	</form>
-	
+<h3>外链视频</h3>
 <table class="table">
 	<thead>
 		<tr>
@@ -86,7 +86,7 @@
 		</tr>
 	</thead>
 	<tbody>
-			% for video in videos:
+			% for video in ex_videos:
 			<tr>
 				<th>${video.name}</th>
 				<th><img class="video-images" src="${video.image}" alt=""></th>
@@ -97,7 +97,48 @@
 				<th>${video.status}</th>
 				<th>${video.created_time}</th>
 				<th>${video.update_time}</th>
-				<th><a href="">编辑</a>|<a href="${reverse('video_sub', kwargs={'video_id':video.id})}">附属信息</a></th>
+				<th>
+					<a href="${reverse('video_update', kwargs={'video_id':video.id})}">编辑</a>|
+					<a href="${reverse('video_sub', kwargs={'video_id':video.id})}">附属信息</a>
+					<a href="${reverse('video_update_status', kwargs={'video_id':video.id})}">修改状态</a>
+					</th>
+			</tr>
+			% endfor
+	</tbody>
+</table>	
+<h3 id="custom-h3">自定义视频</h3>
+<table class="table">
+	<thead>
+		<tr>
+			<th>名称</th>
+			<th>海报</th>
+			<th>视频类型</th>
+			<th>视频来源</th>
+			<th>国籍</th>
+			<th>描述</th>
+			<th>状态</th>
+			<th>创建时间</th>
+			<th>修改时间</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+			% for video in cus_videos:
+			<tr>
+				<th>${video.name}</th>
+				<th><img class="video-images" src="${video.image}" alt=""></th>
+				<th>${VideoType(video.video_type).label}</th>
+				<th>${FromType(video.from_type).label}</th>
+				<th>${NationalityType(video.nationality_type).label}</th>
+				<th><p class="info">${video.info}</p></th>
+				<th>${video.status}</th>
+				<th>${video.created_time}</th>
+				<th>${video.update_time}</th>
+				<th>
+					<a href="${reverse('video_update', kwargs={'video_id':video.id})}">编辑</a>|
+					<a href="${reverse('video_sub', kwargs={'video_id':video.id})}">附属信息</a>
+					<a href="${reverse('video_update_status', kwargs={'video_id':video.id})}">修改状态</a>
+					</th>
 			</tr>
 			% endfor
 	</tbody>

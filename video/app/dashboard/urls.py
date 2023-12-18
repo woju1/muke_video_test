@@ -4,7 +4,7 @@
 from django.urls import path
 from .views.base import Index
 from .views.auth import Login, AdminManger, Logout, UpdateAdminStatus
-from .views.video import ExternalVideo, VideoSubView,VideoStarView,StarDelete
+from .views.video import ExternalVideo, VideoSubView,VideoStarView,StarDelete, SubDelete, VideoUpdate, VideoUpdateStatus
 from django.views.decorators.csrf import csrf_exempt  # 不执行csrf验证
 
 urlpatterns = [
@@ -18,4 +18,11 @@ urlpatterns = [
     path('video/star', csrf_exempt(VideoStarView.as_view()), name='video_star'),
     path('video/star/delete/<int:star_id>/<int:video_id>',
          csrf_exempt(StarDelete.as_view()), name='star_delete'),
+    path('video/sub/delete/<int:videosub_id>/<int:video_id>',
+         csrf_exempt(SubDelete.as_view()), name='sub_delete'),
+    path('video/update/<int:video_id>',
+         csrf_exempt(VideoUpdate.as_view()), name='video_update'),
+    path('video/update/status/<int:video_id>',
+         csrf_exempt(VideoUpdateStatus.as_view()), name='video_update_status'),
+
 ]
